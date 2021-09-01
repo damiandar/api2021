@@ -32,7 +32,7 @@ namespace Clase2DatabaseFirst.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Categoria>> GetCategoria(int id)
         {
-            var categoria = await _context.Categorias.FindAsync(id);
+            var categoria = await _context.Categorias.Where(x=>x.Id== id).FirstAsync();
 
             if (categoria == null)
             {

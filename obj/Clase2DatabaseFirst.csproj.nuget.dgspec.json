@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/damianrosso/Desktop/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj": {}
+    "/Volumes/DATOS/ISTEA/CURSADAS2021-2C/WEB/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj": {}
   },
   "projects": {
-    "/Users/damianrosso/Desktop/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj": {
+    "/Volumes/DATOS/ISTEA/CURSADAS2021-2C/WEB/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/damianrosso/Desktop/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj",
+        "projectUniqueName": "/Volumes/DATOS/ISTEA/CURSADAS2021-2C/WEB/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj",
         "projectName": "Clase2DatabaseFirst",
-        "projectPath": "/Users/damianrosso/Desktop/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj",
+        "projectPath": "/Volumes/DATOS/ISTEA/CURSADAS2021-2C/WEB/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj",
         "packagesPath": "/Users/damianrosso/.nuget/packages/",
-        "outputPath": "/Users/damianrosso/Desktop/Clase2DatabaseFirst/obj/",
+        "outputPath": "/Volumes/DATOS/ISTEA/CURSADAS2021-2C/WEB/Clase2DatabaseFirst/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -58,6 +58,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.2.12, )"
             }
           },
           "imports": [

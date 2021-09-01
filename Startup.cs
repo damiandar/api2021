@@ -31,7 +31,23 @@ namespace Clase2DatabaseFirst
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Clase2DatabaseFirst", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { 
+                    Title = "Clase2DatabaseFirst", 
+                    Version = "v1",
+                    Description = "Materia: Programacion WEB 2021 2do cuatrimestre",
+                    TermsOfService = new Uri("https://istea.edu.ar"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Damian Rosso",
+                        Email = "drosso@istea.com.ar",
+                        Url = new Uri("https://istea.edu.ar"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "GNU",
+                        Url = new Uri("https://istea.edu.ar"),
+                    }
+                });
             });
             services.AddDbContext<ComercioDbContext> (o => o.UseSqlServer(Configuration.GetConnectionString("ComercioCS")));
         }

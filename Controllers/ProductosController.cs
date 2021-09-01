@@ -1,9 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using Clase2DatabaseFirst.Helpers;
 using Clase2DatabaseFirst.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Extensions.Logging;
 
 namespace Clase2DatabaseFirst.Controllers
 {
@@ -12,19 +18,73 @@ namespace Clase2DatabaseFirst.Controllers
     public class ProductosController:ControllerBase
     {
         private readonly ComercioDbContext db;
+        private readonly ILogger<Producto> logger;
 
-        public ProductosController(ComercioDbContext dbContext){
+        public ProductosController(ILogger<Producto> loggerC,ComercioDbContext dbContext){
             db=dbContext;
+            logger=loggerC;
+
         }
         [HttpGet]
-        public ActionResult <List <Producto>> GetAll(){
-            return db.Productos 
-            .ToList();
-        } 
+        public ActionResult <List <Producto>> GetAll(string Orden,int pagina,int tamanio){
+           var ordenar=new Ordenador<Producto>();
+          
+            //return StatusCode(((int)System.Net.HttpStatusCode.BadGateway));
+           /*var consulta= db.Productos.Select(x=> new Producto(){
+                Id=x.Id,
+                Nombre=x.Nombre,
+                Marca=x.Marca,
+                Precio=x.Precio,
+                Categoria=x.Categoria
+            });*/
+            logger.LogInformation("hola");
+            var consulta=db.Productos;
+            var re= ordenar.Ordenar(consulta,Orden);
+            
+            var lista= ListaPaginada<Producto>.ToPagedList( re,pagina,tamanio);
 
+            var metadata = new
+            {
+                lista.TotalCount,
+                lista.PageSize,
+                lista.CurrentPage,
+                lista.TotalPages,
+                lista.HasNext,
+                lista.HasPrevious
+            };
+            Response.Headers.Add("X-Pagination", System.Text.Json.JsonSerializer.Serialize(metadata));
+            return Ok(lista);
+        } 
+        [HttpGet("search/{search}")]
+        public async Task<ActionResult<List<Producto>>> Search(string name, int categoriaid)
+        {
+            try
+            {
+                var result =  db.Productos.Select(x=> new Producto(){
+                Id=x.Id,
+                Nombre=x.Nombre,
+                Categoria=x.Categoria
+                });
+
+
+                if (result.Any())
+                {
+                    return Ok(result.ToListAsync());
+                }
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database");
+            }
+        }
         [HttpGet("{id}")]
         public ActionResult <Producto> MostrarPorId(int id){
             var prodbuscado= db.Productos.Find(id);
+            
+
             if(prodbuscado ==null)
             {
                 return NotFound("El producto no fue encontrado con ese id: " +id );
@@ -77,7 +137,7 @@ namespace Clase2DatabaseFirst.Controllers
             return Ok("estos son los productos con este id de categoria:" + categoriaId);
         }
 
-
+        
     
     }
 }

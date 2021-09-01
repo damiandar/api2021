@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T9+Sdr/Sd8JxyVYZtu9Cbatcym1uI206gjmB1Z0Kl6rWGoELyECe0H/IE2vhSPK00JHdLEm8Lheqv7PDJIym6w==",
+  "dgSpecHash": "F/H4eJolTuKt2uy58fsud2mFvfKiR9doFdIDXokij0VmgQf0TB3Su55DT65M1O2E8xoEcnxSklyvk6RUj3mQbA==",
   "success": true,
-  "projectFilePath": "/Users/damianrosso/Desktop/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj",
+  "projectFilePath": "/Volumes/DATOS/ISTEA/CURSADAS2021-2C/WEB/Clase2DatabaseFirst/Clase2DatabaseFirst.csproj",
   "expectedPackageFiles": [
     "/Users/damianrosso/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/microsoft.aspnetcore.html.abstractions/2.2.0/microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
@@ -88,6 +88,7 @@
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.io.filesystem/4.3.0/system.io.filesystem.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.io.filesystem.primitives/4.3.0/system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.linq/4.3.0/system.linq.4.3.0.nupkg.sha512",
+    "/Users/damianrosso/.nuget/packages/system.linq.dynamic.core/1.2.12/system.linq.dynamic.core.1.2.12.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.linq.expressions/4.3.0/system.linq.expressions.4.3.0.nupkg.sha512",
     "/Users/damianrosso/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder/system.net.nameresolution/4.3.0/system.net.nameresolution.4.3.0.nupkg.sha512",
